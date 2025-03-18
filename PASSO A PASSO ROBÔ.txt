@@ -1,0 +1,13 @@
+PASSO A PASSO ROBÔ
+
+0- abre pasta pai
+
+1- cria arquivo "feitos" ✅
+2- lê nome da n° pasta (gcpj) ✅
+3- copia nome (gcpj) ✅
+4- segue o robô pelo site ✅
+5- abre janela dos anexos gcpj ✅
+6- arrastar() ✅
+7- fecha janela anexos ✅
+8- move subpasta para "feitos" ❌
+9- LOOP (etapa 2) ❌
