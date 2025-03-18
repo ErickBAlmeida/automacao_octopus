@@ -29,20 +29,30 @@ diretorios_filhos = [item for item in itens if os.path.isdir(os.path.join(direto
 os.makedirs(diretorio_feito, exist_ok=True)
 
 def ponteiro_de_anexos():
-    for i in range(3):#len(diretorios_filhos)
+    for i in range(len(diretorios_filhos)):
         try:
             diretorio = diretorios_filhos[i] #escolhe um diretorio
             global nome_gcpj
             nome_gcpj = diretorio #nome da janela do explorer
-            #os.startfile(diretorio_pai+'/'+diretorio) #abre o diretorio dos anexos
+
             time.sleep(.5)
-            rodar_robo() # (AQUI) função para rodar o robo
+            
+            # (AQUI) função para rodar o robo
+            rodar_robo()
+
+            # Move o diretório processado para o diretório "Anexos feitos" 
             shutil.move(os.path.join(diretorio_pai, diretorio), diretorio_feito)
             print(f"Anexos do {diretorio} movidos para {diretorio_feito}")
+            
         except Exception as e:
-            print(f"Erro ao abrir o diretório {diretorio}: {e}")
-            time.sleep(1)
-            break
+            print(f"Erro ao processar o diretório {diretorio}: {e}")
+            print("Deseja continuar com o próximo diretório? (s/n)")
+            if input().lower() != 's':
+                print("Processamento interrompido pelo usuário.")
+                break
+            print("Continuando com o próximo diretório...")
+            time.sleep(2)
+            continue
 
 #pesquisa o GCPJ e clica no link do processo
 def pesquisar_gcpj(nome_gcpj):
@@ -118,4 +128,5 @@ def rodar_robo():
     fechar_janela(nome_gcpj)
 
 #play
+pag.hotkey("alt", "tab")
 ponteiro_de_anexos()
