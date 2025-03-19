@@ -1,9 +1,9 @@
+from win10toast import ToastNotifier
+import pygetwindow as gw
 import pyautogui as pag
+import shutil
 import time
 import os
-import shutil
-import pygetwindow as gw
-from win10toast import ToastNotifier
 
 #coordenadas dos elementos da tela
 LUPA = (1415, 180) #Apenas na página de inclusão de anexos
@@ -17,8 +17,8 @@ ARQUIVOS_BUTTON = (868, 1042)
 PRIMEIRO_ARQUIVO = (431, 263)
 ANEXOS_AREA =(1198, 599)
 
-#abre o diretorio pai ✅
-diretorio_pai = 'C:/Users/ealmeida/Desktop/CADASTRO 19.03.2025/ANEXOS'
+#DIGITE AQUI O CAMINHO DO DIRETORIO DE ORIGEM ✅
+diretorio_pai = ''
 
 diretorio_feito = os.path.join(diretorio_pai, 'Anexos feitos')
 itens = os.listdir(diretorio_pai)
